@@ -17,8 +17,9 @@ useEffect(() => {
     
     return(
 <>
-    <table border="1">
+    <table border="1" className='tabel table-sm'>
             <thead >
+
                 <tr>
                     <th>Sr. No.</th>
                     <th>Name</th>
