@@ -1,4 +1,4 @@
-
+import './FetchApi.css';
 import {useState,useEffect} from 'react'
 function FetchApi(){
 const [user,setUser]=useState([]);
@@ -12,13 +12,13 @@ useEffect(() => {
 
         });
     };
-}, [])
+},[])
     
     
     return(
 <>
-    <table border="1" className='tabel table-sm'>
-            <thead >
+    <table border="1" className='table'>
+            <thead className='table-dark'>
 
                 <tr>
                     <th>Sr. No.</th>
@@ -26,10 +26,12 @@ useEffect(() => {
                     <th>Email</th>
                     <th>Mobile No</th>
                     <th>Address</th>
+                    <th>Delete</th>
+                    
                 </tr>
             </thead>
             
-            
+        
                 {
                  user.map((item,i)=>
                     <tr key={i}>
@@ -43,7 +45,7 @@ useEffect(() => {
                     </tr>
                  )   
                 }
-            
+                
         
     </table>
     
