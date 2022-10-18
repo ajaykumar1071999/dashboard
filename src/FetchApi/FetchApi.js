@@ -2,30 +2,29 @@ import './FetchApi.css';
 import {useState,useEffect} from 'react'
 function FetchApi(){
 const [user,setUser]=useState([]);
+
 useEffect(() => {
-    return () => {
-        fetch("http://localhost:3004/users")
+    fetch("http://localhost:3000/user")
     .then((result)=>result.json())
     .then((resp)=>{
         console.log(resp);
-            setUser(resp)
+            setUser(resp);
 
-        });
-    };
+        })
 },[])
     
     
     return(
 <>
-    <table border="1" className='table'>
-            <thead className='table-dark'>
+    <table border="1" className='table container mt-2'>
+            <thead className='table table-dark'>
 
                 <tr>
                     <th>Sr. No.</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Mobile No</th>
-                    <th>Address</th>
+                    <th>DOB</th>
                     <th>Delete</th>
                     
                 </tr>
@@ -39,7 +38,7 @@ useEffect(() => {
                         <td>{item.name}</td>
                         <td>{item.email}</td>
                         <td>{item.mobile}</td>
-                        <td>{item.address}</td>
+                        <td>{item.dob}</td>
                         <td><button className='btn btn-outline-danger form-control'>Delete</button>
                         </td>
                     </tr>

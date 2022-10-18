@@ -9,7 +9,7 @@ function Register(){
     
     function GetData(){
         let data=({name,email,mobile,dob})
-        fetch("http://localhost:3004/todo", {
+        fetch("http://localhost:3000/user", {
             method: "POST",
             headers: {
               'Accept': 'application/json',
