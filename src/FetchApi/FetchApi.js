@@ -4,16 +4,31 @@ function FetchApi(){
 const [user,setUser]=useState([]);
 
 useEffect(() => {
-    fetch("http://localhost:3000/user")
+    fetchData()
+},[])
+function fetchData(){
+    fetch("http://localhost:3004/user")
     .then((result)=>result.json())
     .then((resp)=>{
         console.log(resp);
             setUser(resp);
 
         })
-},[])
-    
-    
+}
+function deleteData(id){
+    // alert(id)
+
+    fetch(`http://localhost:3004/user/${id}`,{
+        method:"DELETE"
+    }).then((result)=>{
+          result.json().then((resp)=>{
+            console.log(resp)
+
+          })
+    })
+    fetchData()
+}
+
     return(
 <>
     <table border="1" className='table container mt-2'>
@@ -39,7 +54,7 @@ useEffect(() => {
                         <td>{item.email}</td>
                         <td>{item.mobile}</td>
                         <td>{item.dob}</td>
-                        <td><button className='btn btn-outline-danger form-control'>Delete</button>
+                        <td><button className='btn btn-outline-danger form-control' onClick={(id)=>deleteData(item.id)}>Delete</button>
                         </td>
                     </tr>
                  )   

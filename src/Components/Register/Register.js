@@ -9,7 +9,7 @@ function Register(){
     
     function GetData(){
         let data=({name,email,mobile,dob})
-        fetch("http://localhost:3000/user", {
+        fetch("http://localhost:3004/user", {
             method: "POST",
             headers: {
               'Accept': 'application/json',
@@ -23,8 +23,8 @@ function Register(){
             })
           })
 
-     
     }
+        
     return(
         <>
         
@@ -40,4 +40,5 @@ function Register(){
                 
   </>        
     );
-}export default Register;
+}
+export default Register;
