@@ -1,5 +1,11 @@
+import Head from "../Head/Head";
+
 function AddProduct(){
     return(
-        <> Add Product</>
+        <> 
+        <Head/>
+        Add Product
+        
+        </>
     );
 }export default AddProduct;

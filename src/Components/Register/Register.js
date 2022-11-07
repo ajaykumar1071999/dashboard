@@ -1,12 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import {useState,useEffect} from 'react';
-// import './Register.css';
+import {useNavigate} from 'react-router-dom';
+import Head from '../Head/Head'
 function Register(){
-    const [name,Setname]=useState("");
-    const [email,Setemail]=useState("");
-    const [mobile,Setmobile]=useState("");
-    const [dob,Setdob]=useState("");
-    
+    const [name,setName]=useState("");
+    const [email,setEmail]=useState("");
+    const [mobile,setMobile]=useState("");
+    const [dob,setDob]=useState("");
+    const navigate=useNavigate();
+    useEffect(()=>{
+      
+    },[])
     function GetData(){
         let data=({name,email,mobile,dob})
         fetch("http://localhost:3004/user", {
@@ -20,21 +24,23 @@ function Register(){
             // console.warn("resp",resp);;
             resp.json().then((result)=>{
               console.warn("result",result)
+              
             })
           })
+          navigate("/FetchApi");
 
     }
         
     return(
         <>
         
-            
+            <Head/>
                 <div className="col-sm-6 offset-sm-3">
-                <h1>Registraion Form</h1>
-                <input type="text" value={name}name="fname" placeholder="Name" className='form-control' onChange={(e)=>Setname(e.target.value)}/><br/><br/>
-                <input type="text"value={email} name="email" placeholder="Email" className='form-control'onChange={(e)=>Setemail(e.target.value)}/><br/><br/>
-                <input type="text" value={mobile}name="mobile" placeholder="Mobile" className='form-control'onChange={(e)=>Setmobile(e.target.value)}/><br/><br/>
-                <input type="text" value={dob}name="dob" placeholder="Date Of Birth" className='form-control' onChange={(e)=>Setdob(e.target.value)}/><br/><br/>
+                <h1>Registration Form</h1>
+                <input type="text" value={name}name="fname" placeholder="Name" className='form-control' onChange={(e)=>setName(e.target.value)}/><br/><br/>
+                <input type="text"value={email} name="email" placeholder="Email" className='form-control'onChange={(e)=>setEmail(e.target.value)}/><br/><br/>
+                <input type="text" value={mobile}name="mobile" placeholder="Mobile" className='form-control'onChange={(e)=>setMobile(e.target.value)}/><br/><br/>
+                <input type="text" value={dob}name="dob" placeholder="Date Of Birth" className='form-control' onChange={(e)=>setDob(e.target.value)}/><br/><br/>
                 <Button variant="outline-primary" className='form-control' onClick={GetData}>Register</Button>
                 </div>
                 
