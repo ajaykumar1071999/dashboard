@@ -1,10 +1,12 @@
-// import Container from "react-bootstrap/Container";
+// // import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+// import NavDropdown from "react-bootstrap/Navbar";
+import { Link, Navigate } from "react-router-dom";
 import "./Head.css";
-
+import {useState} from 'react'
 function Head() {
+
+  
   function menu() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -14,6 +16,8 @@ function Head() {
     }
   }
 
+  
+  
   return (
     <>
       <div className="topdiv">
@@ -23,9 +27,12 @@ function Head() {
         <div class="topnav" id="myTopnav">
     
           <Link to="/">Home</Link>
+          
+          
           <Link to="/AddProduct">Add Product</Link>
+          
           <Link to="/Update">Update</Link>
-          <Link to="/">{}</Link>
+          <Link to="/" ></Link>
         
           <Link to="/Register">Register</Link>
           <Link to="/Login">Login</Link>

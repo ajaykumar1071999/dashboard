@@ -38,7 +38,7 @@ function FetchApi() {
 
 
   function deleteData(id) {
-    // alert(id)
+
 
     fetch(`http://localhost:3004/user/${id}`, {
       method: "DELETE"
